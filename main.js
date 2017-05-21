@@ -40,7 +40,6 @@ $("#pageRegister").click(function(e) {
 	password = $("#inputPassword").val();
 
 	pageRegister(email, password);
-	pageLogin(email, password);
 });
 
 $("#submitName").click(function(e) {
@@ -54,16 +53,16 @@ $("#submitName").click(function(e) {
         name: teamRealName
 	});
 
-    firebase.database().ref("user/" + user.uid).set({
+    firebase.database().ref("users/" + user.uid).set({
         number: teamName,
         name: teamRealName
     });
 
 	$("#setup").modal("hide");
-	$("#setup").remove();
 
-	$("#login").remove();
-	animateStart();
+    $("#login").remove();
+
+    animateStart();
 });
 
 $("#createTeam").click(function(e) {

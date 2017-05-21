@@ -71,31 +71,31 @@
 			</div>
 		</div>
 
-		<div class="modal modal-dialog" id="setup" tabindex="-1" role="dialog" aria-labelledby="setup" aria-hidden="true">
-			  <div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Create New Team!</h5>      
-					</div>
-					
-					<div class="modal-body">
-					<form>
-						<label for="inputName class=form-control">Team Name</label>
-						<input type="text" class="form-control" id="inputName" placeholder="e.x. NERD...">
-						
-                        <label for="inputTeam" class=form-control">Team Number</label>
-						<input type="text" class="form-control" id="inputTeam" placeholder="e.x. #9044...">
+		<div class="modal modal-dialog fade" id="setup" tabindex="-1" role="dialog" aria-labelledby="setup" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Team!</h5>      
+                </div>
+                
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="inputName class=form-control">Team Name</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="e.x. NERD...">
+                    </div>
                     
-                    </form>
-					<div class="modal-footer">
-						<button id="submitName" class="btn btn-primary">Submit!</button>
-					</div>
-				</div>
-			</div>
-		</div>
+                    <div class="form-group">
+                        <label for="inputTeam" class=form-control">Team Number</label>
+                        <input type="text" class="form-control" id="inputTeam" placeholder="e.x. #9044...">
+                    </div>
+                <div class="modal-footer">
+                    <button id="submitName" class="btn btn-primary">Submit!</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="modal modal-dialog" id="setupTeam" tabindex="-1" role="dialog" aria-labelledby="setupTeam" aria-hidden="true">
+    <div class="modal modal-dialog fade" id="setupTeam" tabindex="-1" role="dialog" aria-labelledby="setupTeam" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -103,10 +103,29 @@
                 </div>
                 
                 <div class="modal-body">
-                <form>
-                    <label for="inputTeam" class=form-control">Team Number</label>
-                    <input type="text" class="form-control" id="inputNewTeam" placeholder="e.x. #9044...">
-                </form>
+                    <div class="form-group">
+                        <label for="inputNameSetup" class="form-control">Team Name</label>
+                        <input type="text" class="form-control" id="inputNewName" placeholder="e.x. NERD..."></input>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputNameSetup" class="form-control">Team Number</label>
+                        <input type="text" class="form-control" id="inputNewNumber" placeholder="e.x. 9044..."></input>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputNameSetup" class="form-control">School</label>
+                        <input type="text" class="form-control" id="inputNewSchool" placeholder="e.x. North Eugene High..."></input>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                                  <input type="checkbox" id="radioTeleOp" class="form-check-input">
+                                        Has TeleOp?
+                        </label>
+                    </div>
+                </div>
+
                 <div class="modal-footer">
                     <button id="submitNewTeam" class="btn btn-primary">Submit!</button>
                 </div>
