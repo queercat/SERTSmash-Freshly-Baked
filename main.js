@@ -93,17 +93,47 @@ $("#submitNewTeam").click(function(e) {
 	$("#setupTeam").modal("hide");
 });
 
-$("#teamsList").on("mouseenter", "li", function() {
+$(document).on("mouseenter", "li", function() {
     $(this).addClass('active');
 });
 
 
-$("#teamsList").on("mouseleave", "li", function() {
+$(document).on("mouseleave", "li", function() {
     $(this).removeClass('active');
 });
 
-
 $("#teamsList").on("click", "li", function() {
+
+    id = $(this).attr("id");
+
+    firebase.database().ref("/users/" + user.uid + "/teams/").once("value").then(function(snapshot) {
+        snapshot.forEach(function(team) {
+            if (team.val().id == id) {
+                infoName = team.val().name;
+                infoID = team.val().id;
+                infoTeleOp = team.val().teleOp;
+                infoAuto = team.val().autonomous;
+                infoSchool = team.val().school;
+                infoComments = team.val().comments;
+
+                $("#infoName").text(infoName);
+
+                $("#infoID").text(infoID);
+
+                $("#infoSchool").text(infoSchool);
+
+                $("#infoTeleOp").text(infoTeleOp);
+
+                $("#infoAutonomous").text(infoAuto);
+
+                $("#infoAdditionalComments").text(infoComments);
+
+                $("#displayInfo").toggle(200);
+            }
+        });
+    });
+
+
 });
 
 function animateStart() {
@@ -146,7 +176,7 @@ function appendData() {
 	firebase.database().ref("/users/" + user.uid + "/teams/").once("value").then(function(snapshot) {
         snapshot.forEach(function(team) {
             var realTeam = team.val();
-            $("#teamsList").append($("<li class='list-group-item'>").text(realTeam.name + " #" + realTeam.id));
+            $("#teamsList").append($("<li class='list-group-item' id=" + realTeam.id + ">").text(realTeam.name + " #" + realTeam.id));
         });
     });
 }
