@@ -47,10 +47,17 @@ $("#submitName").click(function(e) {
 	e.preventDefault();
 
 	teamName = $("#inputTeam").val();
+    teamRealName =$("#inputName").val();
 
 	user.updateProfile({
-		displayName: teamName
+		displayName: teamName,
+        name: teamRealName
 	});
+
+    firebase.database().ref("user/" + user.uid).set({
+        number: teamName,
+        name: teamRealName
+    });
 
 	$("#setup").modal("hide");
 	$("#setup").remove();
@@ -115,7 +122,7 @@ function appendData() {
 
 	//Append teams.
 	firebase.database().ref("/users/" + user.uid + "/teams/").once("value").then(function(snapshot) {
-        console.log(snapshot.val());
+        $("#teamsList").append($("<li class='list-group-item'>")).text("Team #" + snapshot.val());
     });
 }
 
