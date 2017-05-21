@@ -74,13 +74,36 @@ $("#createTeam").click(function(e) {
 $("#submitNewTeam").click(function(e) {
 	e.preventDefault();
 
-	teamName = $("#inputNewTeam").val();
+	teamName = $("#inputNewName").val();
+    teamID = $("#inputNewNumber").val();
+    teamSchool = $("#inputNewSchool").val();
+    teleOp = $("#radioTeleOp").val();
+    autonomous = $("#radioAutonomous").val();
+    additionalComments = $("#inputAdditionalConcerns").val();
 
 	firebase.database().ref("users/" + user.uid + "/teams/" + teamName).set({
-		name: teamName
+		"name": teamName,
+        "id": teamID,
+        "school": teamSchool,
+        "teleOp": teleOp,
+        "autonomous": autonomous,
+        "comments": additionalComments
 	});
 
 	$("#setupTeam").modal("hide");
+});
+
+$("#teamsList").on("mouseenter", "li", function() {
+    $(this).addClass('active');
+});
+
+
+$("#teamsList").on("mouseleave", "li", function() {
+    $(this).removeClass('active');
+});
+
+
+$("#teamsList").on("click", "li", function() {
 });
 
 function animateStart() {
@@ -121,7 +144,10 @@ function appendData() {
 
 	//Append teams.
 	firebase.database().ref("/users/" + user.uid + "/teams/").once("value").then(function(snapshot) {
-        $("#teamsList").append($("<li class='list-group-item'>")).text("Team #" + snapshot.val());
+        snapshot.forEach(function(team) {
+            var realTeam = team.val();
+            $("#teamsList").append($("<li class='list-group-item'>").text(realTeam.name + " #" + realTeam.id));
+        });
     });
 }
 
