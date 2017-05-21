@@ -116,17 +116,17 @@ $("#teamsList").on("click", "li", function() {
                 infoSchool = team.val().school;
                 infoComments = team.val().comments;
 
-                $("#infoName").text(infoName);
+                $("#infoName").text("Team: " + infoName);
 
-                $("#infoID").text(infoID);
+                $("#infoID").text("Team #: " + infoID);
 
-                $("#infoSchool").text(infoSchool);
+                $("#infoSchool").text("School: " + infoSchool);
 
-                $("#infoTeleOp").text(infoTeleOp);
+                $("#infoTeleOp").text("TeleOp Capabilities: " + infoTeleOp);
 
-                $("#infoAutonomous").text(infoAuto);
+                $("#infoAutonomous").text("Autonomous Capabilities: " + infoAuto);
 
-                $("#infoAdditionalComments").text(infoComments);
+                $("#infoAdditionalComments").text("Comments: " + infoComments);
 
                 $("#displayInfo").toggle(200);
             }
@@ -177,6 +177,8 @@ function appendData() {
         snapshot.forEach(function(team) {
             var realTeam = team.val();
             $("#teamsList").append($("<li class='list-group-item' id=" + realTeam.id + ">").text(realTeam.name + " #" + realTeam.id));
+
+            $("#teamsList").append("<br>");
         });
     });
 }

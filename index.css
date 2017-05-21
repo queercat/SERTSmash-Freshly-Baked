@@ -30,3 +30,6 @@ header h1 {
 	text: text-center;
 }
 
+#centerModal{
+    margin: 0 auto;
+}
