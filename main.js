@@ -61,7 +61,7 @@ $("#submitName").click(function(e) {
 
 $("#createTeam").click(function(e) {
 	e.preventDefault();
-	
+
 	$("#setupTeam").modal("show");
 });
 
@@ -83,11 +83,11 @@ function animateStart() {
 	}, "slow");
 
 	$("#headstuff").animate({
-		height: "-=200px" 
+		height: "-=200px"
 	}, "slow");
 
 	$("#headstuff").promise().done(function() {
-	
+
 		$("#smalltext").text("");
 
 		$("#headstuff").animate({
@@ -95,7 +95,7 @@ function animateStart() {
 		}, "slow");
 
 		$("#bigtext").text("Robot Informations");
-		
+
 		$("#textstuff").animate({
 			opacity: "0.75"
 		}, "slow");
@@ -107,20 +107,16 @@ function animateStart() {
 }
 
 function appendData() {
-	firebase.database().ref("users/" + user.uid).set({
-		email: user.email,
-	team: user.displayName
-	});
-	
-	//Append team info.
+	$("#teams").show();
+
+    //Append team info.
 	$("#welcomeBack").text("Welcome Back Team #" + user.displayName + "!");
 	$("#emailRef").text("Logged in as " + user.email);
 
 	//Append teams.
 	firebase.database().ref("/users/" + user.uid + "/teams/").once("value").then(function(snapshot) {
-		console.log(snapshot.name);  
-		// ...
-	});
+        console.log(snapshot.val());
+    });
 }
 
 function pageLogin(email, password) {
