@@ -2,7 +2,7 @@
 
 ## Freshly Baked Pit Scouter!
 
-> A pit scouting app made using Electron and a fair amount of coffee.
+> A pit scouting app made using Electron and a fair amount of coffee. Made for the SERT Smash Hackathon!
 
 ## Dev
 
@@ -27,4 +27,4 @@ Builds the app for macOS, Linux, and Windows, using [electron-packager](https://
 
 ## License
 
-MIT © [<%= name %>](<%= website %>)
+MIT © [Nicole Tusek](nicoletusek.me)
