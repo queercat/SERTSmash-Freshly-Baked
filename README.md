@@ -27,4 +27,4 @@ Builds the app for macOS, Linux, and Windows, using [electron-packager](https://
 
 ## License
 
-MIT © [Nicole Tusek](nicoletusek.me)
+MIT © [Nicole Tusek](http://nicoletusek.me)
