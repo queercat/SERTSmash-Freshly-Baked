@@ -1,14 +1,14 @@
 {
-  "name": "app",
-  "productName": "App",
-  "version": "0.0.0",
-  "description": "",
+  "name": "Freshly-Baked-Pit-Scouter",
+  "productName": "Pit-Scouter",
+  "version": "1.0.0",
+  "description": "A simple pit scouter!",
   "license": "MIT",
   "repository": "user/repo",
   "author": {
-    "name": "",
-    "email": "",
-    "url": ""
+    "name": "Nicole Tusek",
+    "email": "tusek.nicole@gmail.com",
+    "url": "nicoletusek.me"
   },
   "scripts": {
     "test": "xo",
