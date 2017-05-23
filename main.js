@@ -24,9 +24,6 @@ firebase.auth().onAuthStateChanged(function(u) {
 			$("#login").hide();
 			animateStart();
 		}
-	} else {
-		// User is signed out, reload the page
-		//location.reload();
 	}
 });
 
