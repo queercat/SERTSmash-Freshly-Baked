@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged(function(u) {
 		}
 	} else {
 		// User is signed out, reload the page
-		location.reload();
+		//location.reload();
 	}
 });
 
