@@ -13,6 +13,23 @@ var database = firebase.database;
 
 var user = null;
 
+firebase.auth().onAuthStateChanged(function(u) {
+	user = u;
+	
+	if (user) {
+		// User is signed in, show the user page
+		if (user.displayName == null) {
+			$("#setup").modal("show");
+		} else {
+			$("#login").hide();
+			animateStart();
+		}
+	} else {
+		// User is signed out, reload the page
+		location.reload();
+	}
+});
+
 $("#pageLogin").click(function(e) {
 	e.preventDefault();
 
@@ -20,17 +37,6 @@ $("#pageLogin").click(function(e) {
 	password = $("#inputPassword").val();
 
 	pageLogin(email, password);
-
-	if (user == null) {
-		user = firebase.auth().currentUser;
-	}
-
-	if (user.displayName == null) {
-		$("#setup").modal("show");
-	} else {
-		$("#login").remove();
-		animateStart();
-	}
 });
 
 $("#pageRegister").click(function(e) {
